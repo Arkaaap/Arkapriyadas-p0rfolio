@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Arka Priya Das · Cybersecurity Portfolio</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0e14;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            color: #e3e9f1;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #141a22;
+            border-radius: 2.5rem;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.7);
+            border: 1px solid #2a333e;
+        }
+
+        /* header / profile */
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #2a333e;
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .name-title h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            background: linear-gradient(145deg, #b7d0e6, #8bb3d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.3rem;
+        }
+
+        .name-title .badge {
+            display: inline-block;
+            background: #1f2a36;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #b0c9e0;
+            border: 1px solid #3b4857;
+            letter-spacing: 0.3px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        .contact-links a {
+            color: #b6cddf;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            background: #1e2834;
+            border: 1px solid #2d3947;
+        }
+
+        .contact-links a i {
+            color: #78a9d4;
+            width: 1.2rem;
+        }
+
+        .contact-links a:hover {
+            background: #2b3848;
+            color: #ffffff;
+            border-color: #5a7b9c;
+        }
+
+        /* grid layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 2.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* left panel */
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card {
+            background: #1a212b;
+            border-radius: 1.8rem;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #2a3542;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            border-color: #426079;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94b3d1;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #2c3848;
+            padding-bottom: 0.7rem;
+        }
+
+        .card-title i {
+            color: #5f8db8;
+            font-size: 1.2rem;
+        }
+
+        /* education */
+        .edu-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .edu-item strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #d3e2f0;
+        }
+
+        .edu-item .meta {
+            color: #8faac4;
+            font-size: 0.9rem;
+            margin: 0.2rem 0 0.3rem;
+        }
+
+        .edu-item .cgpa {
+            background: #232f3d;
+            display: inline-block;
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            font-weight: 500;
+            color: #b5d0ea;
+            border: 1px solid #3a4a5d;
+            font-size: 0.85rem;
+        }
+
+        /* skills */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+        }
+
+        .skill-tag {
+            background: #1e2a37;
+            border: 1px solid #31415a;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #c7daea;
+            letter-spacing: 0.2px;
+        }
+
+        .skill-tag i {
+            margin-right: 5px;
+            color: #6d93bb;
+            font-size: 0.7rem;
+        }
+
+        .skill-cat {
+            margin-top: 1.2rem;
+        }
+
+        .skill-cat h4 {
+            font-size: 0.9rem;
+            color: #b1c9e2;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        /* certification */
+        .cert-item {
+            background: #1f2937;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            display: inline-block;
+            border: 1px solid #33445a;
+            font-size: 0.9rem;
+        }
+
+        /* right panel */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .summary-text {
+            color: #cbddee;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .summary-text i {
+            color: #6e9ac7;
+            margin-right: 6px;
+        }
+
+        /* project cards */
+        .project-item {
+            background: #1a222d;
+            border-radius: 1.4rem;
+            padding: 1.4rem 1.5rem;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #4d76a0;
+            transition: 0.15s;
+        }
+
+        .project-item:hover {
+            background: #202b39;
+            border-left-color: #89b3de;
+        }
+
+        .project-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #d3e4f5;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-item .project-meta {
+            font-size: 0.8rem;
+            color: #8aaac9;
+            background: #202d3d;
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #3b5067;
+        }
+
+        .project-item .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.8rem;
+            margin: 0.6rem 0 0.5rem;
+        }
+
+        .project-item .tools span {
+            background: #1f2d3e;
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            border: 1px solid #32475f;
+            color: #b0cded;
+        }
+
+        .project-item p {
+            color: #b9cee5;
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+        }
+
+        .project-item ul {
+            list-style: none;
+            margin-top: 0.3rem;
+        }
+
+        .project-item ul li {
+            color: #bbd1e7;
+            font-size: 0.92rem;
+            padding: 0.1rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .project-item ul li::before {
+            content: "▹";
+            color: #6d9ac9;
+            font-weight: 600;
+        }
+
+        /* internship / experience */
+        .exp-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .exp-item strong {
+            font-size: 1.1rem;
+            color: #d2e2f2;
+        }
+
+        .exp-item .sub {
+            color: #9bb6d3;
+            font-size: 0.9rem;
+        }
+
+        .exp-item ul {
+            list-style: none;
+            margin-top: 0.4rem;
+            padding-left: 0.2rem;
+        }
+
+        .exp-item ul li {
+            color: #c1d7ed;
+            font-size: 0.95rem;
+            padding: 0.1rem 0;
+            display: flex;
+            gap: 8px;
+        }
+
+        .exp-item ul li::before {
+            content: "◆";
+            color: #537b9e;
+            font-size: 0.6rem;
+            align-self: center;
+        }
+
+        .intern-badge {
+            background: #1a293b;
+            border-radius: 40px;
+            padding: 0.2rem 1.2rem;
+            font-size: 0.8rem;
+            border: 1px solid #3f5777;
+            display: inline-block;
+            color: #b5cfe9;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #2b3849;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        /* responsive */
+        @media (max-width: 900px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .contact-links {
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            .name-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-links a {
+                font-size: 0.9rem;
+                padding: 0.2rem 0.8rem;
+            }
+            .project-item h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <header class="profile-header">
+        <div class="name-title">
+            <h1>Arka Priya Das</h1>
+            <span class="badge"><i class="fas fa-shield-alt" style="margin-right: 6px;"></i>Cyber Security Analyst</span>
+        </div>
+        <div class="contact-links">
+            <a href="mailto:arkapriyadas6@gmail.com"><i class="fas fa-envelope"></i> arkapriyadas6</a>
+            <a href="#"><i class="fas fa-phone-alt"></i> +91-6289286976</a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> arka-p</a>
+            <a href="#"><i class="fab fa-medium-m"></i> @ArkaPriyaDas</a>
+        </div>
+    </header>
+
+    <!-- main grid -->
+    <div class="grid-2">
+        <!-- left column -->
+        <div class="left-panel">
+            <!-- education -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                <div class="edu-item">
+                    <strong>B.Sc. Cyber Security</strong>
+                    <div class="meta">Institute Of Advance Education And Research, NewTown Action Area 3</div>
+                    <div class="meta" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                        <span>2023 – present</span>
+                        <span class="cgpa"><i class="fas fa-star" style="color: #6d94be;"></i> CGPA: 8.4 / 10</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- skills -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-code"></i> Skills</div>
+                <div class="skill-cat">
+                    <h4><i class="fas fa-terminal"></i> Programming & Scripting</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span><span class="skill-tag">C</span><span class="skill-tag">C++</span>
+                        <span class="skill-tag">bash</span><span class="skill-tag">win32 API</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4><i class="fas fa-bug"></i> Security</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">VAPT</span><span class="skill-tag">CTF</span><span class="skill-tag">Offensive Security</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4><i class="fas fa-tools"></i> Tools & Platforms</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Nmap</span><span class="skill-tag">RustScan</span><span class="skill-tag">Masscan</span>
+                        <span class="skill-tag">Burp Suite</span><span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">Autopsy</span><span class="skill-tag">Zphisher</span><span class="skill-tag">Gobuster</span>
+                        <span class="skill-tag">LinPEAS</span><span class="skill-tag">GTFOBins</span>
+                        <span class="skill-tag">SearchSploit</span><span class="skill-tag">SET Toolkit</span>
+                        <span class="skill-tag">Linux</span><span class="skill-tag">Nano</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h4><i class="fas fa-database"></i> Database & Version Control</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL (CRUD, DBA)</span><span class="skill-tag">Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- certifications -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-certificate"></i> Certifications</div>
+                <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+                    <div class="cert-item"><i class="fas fa-check-circle" style="color: #4f8eb3;"></i> Cyber Security Internship – ICSS (2025)</div>
+                    <div class="cert-item"><i class="fas fa-check-circle" style="color: #4f8eb3;"></i> Cyber Security Internship – ICSS (2025)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- right column -->
+        <div class="right-panel">
+            <!-- summary -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-user-astronaut"></i> Summary</div>
+                <div class="summary-text">
+                    <i class="fas fa-quote-left" style="opacity: 0.6;"></i> Cybersecurity enthusiast with strong foundations in Python, C, C++, and Rust. Hands-on experience in vulnerability analysis, penetration testing, secure system assessments, and real-world attack simulations. Passionate about offensive security and building safer systems.
+                </div>
+            </div>
+
+            <!-- experience + internship -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-briefcase"></i> Experience</div>
+                <div class="exp-item">
+                    <strong>Cyber Security Intern</strong> <span class="sub">· Real-World Attack Simulation</span>
+                    <ul>
+                        <li>Learned offensive security methodologies with real-life examples</li>
+                        <li>Performed real-life attack simulations using open-source tools</li>
+                        <li>Hands-on experience in network scanning, sniffing, exploitation, and evidence analysis</li>
+                    </ul>
+                </div>
+                <hr>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                    <span class="intern-badge"><i class="fas fa-laptop-code"></i> Cyber Security Internship – ICSS (2025)</span>
+                    <span class="intern-badge"><i class="fas fa-laptop-code"></i> Cyber Security Internship – ICSS (2025)</span>
+                </div>
+            </div>
+
+            <!-- projects -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-folder-open"></i> Projects</div>
+
+                <div class="project-item">
+                    <h3>Role-Based Access Management System (PoC) <span class="project-meta">Jul 2025 – Aug 2025</span></h3>
+                    <div class="tools"><span>Python</span><span>Nmap</span><span>Burp Suite</span><span>Linux</span></div>
+                    <ul>
+                        <li>Implemented secure password-based authentication</li>
+                        <li>Integrated OTP verification for enhanced access control</li>
+                        <li>Designed role-based user privilege management</li>
+                        <li>Built an interactive shell interface for authenticated users</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h3>Sub-Directory Enumeration Tool (CLI) <span class="project-meta">Python</span></h3>
+                    <div class="tools"><span>Python</span><span>CLI</span><span>Custom wordlists</span></div>
+                    <ul>
+                        <li>Fast and lightweight directory enumeration tool</li>
+                        <li>Supports custom wordlists, detects status codes, redirections &amp; response lengths</li>
+                        <li>Used to discover hidden directories, admin panels, and config files</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h3>Vulnerability Scanner (Group Project) <span class="project-meta">Rust</span></h3>
+                    <div class="tools"><span>Rust</span><span>Team</span><span>Port scanning</span></div>
+                    <ul>
+                        <li>Collaborated with a team to design and develop a vulnerability scanner</li>
+                        <li>Efficiently scans open ports and running services</li>
+                        <li>Detects and tracks common system vulnerabilities</li>
+                        <li>Optimized for speed and lightweight performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
