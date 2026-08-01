@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arka Priya Das · Cyber Security Portfolio</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ---------- CYBER SECURITY THEME ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c10;
+            font-family: 'Fira Code', 'Segoe UI', 'Courier New', monospace;
+            color: #b7d7e8;
+            padding: 1.8rem 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* glitch/terminal overlay effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0, 255, 100, 0.01) 0px, rgba(0, 0, 0, 0.2) 2px, transparent 3px);
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #10151c;
+            border: 1px solid #1fbf6c30;
+            border-radius: 2rem;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 0 40px rgba(0, 255, 100, 0.04), inset 0 0 60px rgba(0, 30, 20, 0.4);
+            backdrop-filter: blur(1px);
+            position: relative;
+        }
+
+        /* ---------- TERMINAL HEADER ---------- */
+        .terminal-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #1fbf6c40;
+            padding-bottom: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .terminal-prompt {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .prompt-symbol {
+            color: #1fbf6c;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px #1fbf6c60;
+        }
+
+        .terminal-prompt h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #b3e0cf;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 20px #1fbf6c30;
+        }
+
+        .terminal-prompt .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 26px;
+            background: #1fbf6c;
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .badge-root {
+            background: #121e26;
+            border: 1px solid #1fbf6c60;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #81d4b0;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px #1fbf6c15;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+            margin-top: 0.6rem;
+        }
+
+        .contact-links a {
+            color: #8abfcf;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            background: #141e28;
+            border: 1px solid #1fbf6c30;
+            transition: 0.25s;
+            font-family: 'Segoe UI', monospace;
+        }
+
+        .contact-links a i {
+            color: #1fbf6c;
+            width: 1.1rem;
+            text-shadow: 0 0 8px #1fbf6c40;
+        }
+
+        .contact-links a:hover {
+            background: #1a2a36;
+            border-color: #1fbf6c;
+            color: #d4f0e8;
+            box-shadow: 0 0 25px #1fbf6c20;
+            transform: translateY(-1px);
+        }
+
+        /* ---------- GRID ---------- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 2.2rem;
+        }
+
+        /* ---------- CARDS (TERMINAL STYLE) ---------- */
+        .card {
+            background: #0f171f;
+            border: 1px solid #1fbf6c30;
+            border-radius: 1.8rem;
+            padding: 1.6rem 1.6rem;
+            box-shadow: inset 0 0 30px rgba(0, 30, 20, 0.3), 0 8px 20px rgba(0, 0, 0, 0.6);
+            transition: 0.2s;
+            backdrop-filter: blur(2px);
+        }
+
+        .card:hover {
+            border-color: #1fbf6c80;
+            box-shadow: 0 0 30px #1fbf6c10, inset 0 0 40px #1fbf6c08;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6fc7a8;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #1fbf6c20;
+            padding-bottom: 0.7rem;
+            font-weight: 400;
+        }
+
+        .card-title i {
+            color: #1fbf6c;
+            font-size: 1.2rem;
+            width: 1.6rem;
+            text-shadow: 0 0 12px #1fbf6c50;
+        }
+
+        /* ---------- EDUCATION ---------- */
+        .edu-item {
+            margin-bottom: 1.4rem;
+        }
+
+        .edu-item strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #cbe8dd;
+        }
+
+        .edu-item .meta {
+            color: #7faaba;
+            font-size: 0.9rem;
+            margin: 0.2rem 0 0.3rem;
+        }
+
+        .edu-item .cgpa {
+            background: #12212b;
+            display: inline-block;
+            padding: 0.1rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 400;
+            color: #86d4b8;
+            border: 1px solid #1fbf6c40;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- SKILLS (TAGS) ---------- */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+        }
+
+        .skill-tag {
+            background: #0d1a22;
+            border: 1px solid #1fbf6c30;
+            padding: 0.15rem 1.1rem;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: #b7dbd0;
+            letter-spacing: 0.3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .skill-tag i {
+            margin-right: 5px;
+            color: #1fbf6c;
+            font-size: 0.65rem;
+        }
+
+        .skill-cat {
+            margin-top: 1.2rem;
+        }
+
+        .skill-cat h4 {
+            font-size: 0.8rem;
+            color: #74bda0;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- CERTIFICATIONS ---------- */
+        .cert-item {
+            background: #0f1c26;
+            border-radius: 40px;
+            padding: 0.2rem 1.2rem;
+            display: inline-block;
+            border: 1px solid #1fbf6c40;
+            font-size: 0.85rem;
+            color: #b2d9cb;
+            margin-bottom: 0.4rem;
+        }
+
+        .cert-item i {
+            color: #1fbf6c;
+            margin-right: 6px;
+        }
+
+        /* ---------- SUMMARY ---------- */
+        .summary-text {
+            color: #bad6cf;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .summary-text i {
+            color: #1fbf6c;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+        /* ---------- EXPERIENCE ---------- */
+        .exp-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .exp-item strong {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #cde8df;
+        }
+
+        .exp-item .sub {
+            color: #77b8a2;
+            font-size: 0.9rem;
+        }
+
+        .exp-item ul {
+            list-style: none;
+            margin-top: 0.4rem;
+            padding-left: 0.2rem;
+        }
+
+        .exp-item ul li {
+            color: #bfdbd3;
+            font-size: 0.95rem;
+            padding: 0.1rem 0;
+            display: flex;
+            gap: 10px;
+            font-weight: 300;
+        }
+
+        .exp-item ul li::before {
+            content: ">";
+            color: #1fbf6c;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .intern-badge {
+            background: #0e1d27;
+            border-radius: 40px;
+            padding: 0.2rem 1.2rem;
+            font-size: 0.8rem;
+            border: 1px solid #1fbf6c40;
+            display: inline-block;
+            color: #91cfb9;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #1fbf6c20;
+            margin: 0.7rem 0 1.2rem;
+        }
+
+        /* ---------- PROJECTS (TERMINAL STYLE) ---------- */
+        .project-item {
+            background: #0c161f;
+            border-radius: 1.4rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.2rem;
+            border-left: 3px solid #1fbf6c;
+            box-shadow: inset 0 0 20px rgba(0, 30, 20, 0.2);
+            transition: 0.2s;
+        }
+
+        .project-item:hover {
+            border-left-width: 5px;
+            background: #101f2a;
+            box-shadow: 0 0 30px #1fbf6c10;
+        }
+
+        .project-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #c3e4d9;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-item .project-meta {
+            font-size: 0.75rem;
+            color: #6fb09a;
+            background: #0e1e2a;
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #1fbf6c30;
+            font-family: 'Courier New', monospace;
+        }
+
+        .project-item .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.8rem;
+            margin: 0.5rem 0 0.4rem;
+        }
+
+        .project-item .tools span {
+            background: #0e1c26;
+            padding: 0.05rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            border: 1px solid #1fbf6c30;
+            color: #8ecdb9;
+        }
+
+        .project-item p {
+            color: #b3d3c9;
+            font-size: 0.95rem;
+            margin-top: 0.2rem;
+            font-weight: 300;
+        }
+
+        .project-item ul {
+            list-style: none;
+            margin-top: 0.2rem;
+        }
+
+        .project-item ul li {
+            color: #bbdbd2;
+            font-size: 0.92rem;
+            padding: 0.1rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            font-weight: 300;
+        }
+
+        .project-item ul li::before {
+            content: "■";
+            color: #1fbf6c;
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 950px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .terminal-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .contact-links {
+                gap: 0.6rem 1rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .terminal-prompt h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-links a {
+                font-size: 0.85rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .project-item h3 {
+                font-size: 1rem;
+            }
+        }
+
+        /* ---------- SCROLLBAR (CYBER) ---------- */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #0b141c;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0b141c;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1fbf6c40;
+            border-radius: 10px;
+            border: 1px solid #1fbf6c20;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1fbf6c70;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- TERMINAL HEADER -->
+        <header class="terminal-header">
+            <div class="terminal-prompt">
+                <span class="prompt-symbol">⫸</span>
+                <h1>Arka Priya Das</h1>
+                <span class="cursor"></span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; align-items: center;">
+                <span class="badge-root"><i class="fas fa-shield-alt" style="margin-right: 6px; color: #1fbf6c;"></i>
+                    CYBER SECURITY ANALYST</span>
+            </div>
+        </header>
+
+        <!-- CONTACT (under header) -->
+        <div class="contact-links"
+            style="margin-bottom: 2rem; border-bottom: 1px solid #1fbf6c20; padding-bottom: 0.8rem;">
+            <a href="mailto:arkapriyadas6@gmail.com"><i class="fas fa-envelope"></i> arkapriyadas6</a>
+            <a href="#"><i class="fas fa-phone-alt"></i> +91-6289286976</a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> arka-p</a>
+            <a href="#"><i class="fab fa-medium-m"></i> @ArkaPriyaDas</a>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid-2">
+
+            <!-- LEFT PANEL -->
+            <div class="left-panel" style="display: flex; flex-direction: column; gap: 2rem;">
+
+                <!-- EDUCATION -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                    <div class="edu-item">
+                        <strong>B.Sc. Cyber Security</strong>
+                        <div class="meta">Institute Of Advance Education And Research, NewTown Action Area 3</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 4px;">
+                            <span style="color: #90b8c9;">2023 – present</span>
+                            <span class="cgpa"><i class="fas fa-star" style="color: #1fbf6c;"></i> CGPA: 8.4 / 10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SKILLS -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-code"></i> Skills</div>
+                    <div class="skill-cat">
+                        <h4><i class="fas fa-terminal" style="color: #1fbf6c; width: 1.2rem;"></i> Programming &
+                            Scripting</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span><span class="skill-tag">C</span><span
+                                class="skill-tag">C++</span>
+                            <span class="skill-tag">bash</span><span class="skill-tag">win32 API</span>
+                        </div>
+                    </div>
+                    <div class="skill-cat">
+                        <h4><i class="fas fa-bug" style="color: #1fbf6c; width: 1.2rem;"></i> Security</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">VAPT</span><span class="skill-tag">CTF</span><span
+                                class="skill-tag">Offensive Security</span>
+                        </div>
+                    </div>
+                    <div class="skill-cat">
+                        <h4><i class="fas fa-tools" style="color: #1fbf6c; width: 1.2rem;"></i> Tools & Platforms</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Nmap</span><span class="skill-tag">RustScan</span><span
+                                class="skill-tag">Masscan</span>
+                            <span class="skill-tag">Burp Suite</span><span class="skill-tag">Wireshark</span>
+                            <span class="skill-tag">Autopsy</span><span class="skill-tag">Zphisher</span><span
+                                class="skill-tag">Gobuster</span>
+                            <span class="skill-tag">LinPEAS</span><span class="skill-tag">GTFOBins</span>
+                            <span class="skill-tag">SearchSploit</span><span class="skill-tag">SET Toolkit</span>
+                            <span class="skill-tag">Linux</span><span class="skill-tag">Nano</span>
+                        </div>
+                    </div>
+                    <div class="skill-cat">
+                        <h4><i class="fas fa-database" style="color: #1fbf6c; width: 1.2rem;"></i> Database & Version
+                            Control</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">SQL (CRUD, DBA)</span><span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATIONS -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-certificate"></i> Certifications</div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div class="cert-item"><i class="fas fa-check-circle"></i> Cyber Security Internship – ICSS
+                            (2025)</div>
+                        <div class="cert-item"><i class="fas fa-check-circle"></i> Cyber Security Internship – ICSS
+                            (2025)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL -->
+            <div class="right-panel" style="display: flex; flex-direction: column; gap: 2rem;">
+
+                <!-- SUMMARY -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-user-astronaut"></i> Summary</div>
+                    <div class="summary-text">
+                        <i class="fas fa-quote-left" style="opacity: 0.5;"></i> Cybersecurity enthusiast with strong
+                        foundations in Python, C, C++, and Rust. Hands-on experience in vulnerability analysis,
+                        penetration testing, secure system assessments, and real-world attack simulations. Passionate
+                        about offensive security and building safer systems.
+                    </div>
+                </div>
+
+                <!-- EXPERIENCE -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-briefcase"></i> Experience</div>
+                    <div class="exp-item">
+                        <strong>Cyber Security Intern</strong> <span class="sub">· Real-World Attack Simulation</span>
+                        <ul>
+                            <li>Learned offensive security methodologies with real-life examples</li>
+                            <li>Performed real-life attack simulations using open-source tools</li>
+                            <li>Hands-on experience in network scanning, sniffing, exploitation, and evidence analysis
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                        <span class="intern-badge"><i class="fas fa-laptop-code"></i> Cyber Security Internship – ICSS
+                            (2025)</span>
+                        <span class="intern-badge"><i class="fas fa-laptop-code"></i> Cyber Security Internship – ICSS
+                            (2025)</span>
+                    </div>
+                </div>
+
+                <!-- PROJECTS -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-folder-open"></i> Projects</div>
+
+                    <div class="project-item">
+                        <h3>Role-Based Access Management System (PoC) <span class="project-meta">Jul 2025 – Aug
+                                2025</span></h3>
+                        <div class="tools"><span>Python</span><span>Nmap</span><span>Burp Suite</span><span>Linux</span>
+                        </div>
+                        <ul>
+                            <li>Implemented secure password-based authentication</li>
+                            <li>Integrated OTP verification for enhanced access control</li>
+                            <li>Designed role-based user privilege management</li>
+                            <li>Built an interactive shell interface for authenticated users</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>Sub-Directory Enumeration Tool (CLI) <span class="project-meta">Python</span></h3>
+                        <div class="tools"><span>Python</span><span>CLI</span><span>Custom wordlists</span></div>
+                        <ul>
+                            <li>Fast and lightweight directory enumeration tool</li>
+                            <li>Supports custom wordlists, detects status codes, redirections &amp; response lengths
+                            </li>
+                            <li>Used to discover hidden directories, admin panels, and config files</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>Vulnerability Scanner (Group Project) <span class="project-meta">Rust</span></h3>
+                        <div class="tools"><span>Rust</span><span>Team</span><span>Port scanning</span></div>
+                        <ul>
+                            <li>Collaborated with a team to design and develop a vulnerability scanner</li>
+                            <li>Efficiently scans open ports and running services</li>
+                            <li>Detects and tracks common system vulnerabilities</li>
+                            <li>Optimized for speed and lightweight performance</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> <!-- right panel -->
+        </div> <!-- grid -->
+
+        <!-- FOOTER TERMINAL -->
+        <div
+            style="margin-top: 2.5rem; border-top: 1px solid #1fbf6c20; padding-top: 1.2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; font-size: 0.8rem; color: #4d897a; font-family: 'Courier New', monospace;">
+            <span><i class="fas fa-terminal" style="color: #1fbf6c;"></i> [root@cybersec ~]# whoami <span
+                    style="color: #8fc9b5;">arka-priya</span></span>
+            <span><i class="fas fa-shield-virus" style="color: #1fbf6c;"></i> offensive security · vapt · ctf</span>
+            <span><i class="fas fa-code-branch"></i> version 1.0 · 2026</span>
+        </div>
+
+    </div> <!-- container -->
+</body>
+
+</html>
