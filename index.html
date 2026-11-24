@@ -431,6 +431,81 @@
             opacity: 0.7;
         }
 
+        /* ---------- N8N AUTOMATION ---------- */
+        .intro-text {
+            color: #bad6cf;
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+        }
+
+        .node-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .node-card {
+            background: #0c161f;
+            border: 1px solid #1fbf6c30;
+            border-radius: 1rem;
+            padding: 0.8rem 1rem;
+        }
+
+        .node-card strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #c3e4d9;
+        }
+
+        .node-card strong i {
+            color: #1fbf6c;
+            margin-right: 8px;
+            width: 1rem;
+        }
+
+        .node-card span {
+            display: block;
+            font-size: 0.82rem;
+            color: #9cc4b8;
+            font-weight: 300;
+            margin-top: 0.15rem;
+        }
+
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.4rem 0.5rem;
+            margin: 0.6rem 0 0.5rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .flow .node {
+            background: #0e1c26;
+            border: 1px solid #1fbf6c50;
+            border-radius: 8px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.78rem;
+            color: #a9dccb;
+        }
+
+        .flow .arrow {
+            color: #1fbf6c;
+            font-size: 0.8rem;
+        }
+
+        .subhead {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #74bda0;
+            font-weight: 300;
+            margin: 0 0 0.6rem;
+        }
+
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 950px) {
             .grid-2 {
@@ -567,6 +642,14 @@
                         </div>
                     </div>
                     <div class="skill-cat">
+                        <h4><i class="fas fa-cogs" style="color: #1fbf6c; width: 1.2rem;"></i> Automation & Cloud</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">n8n</span><span class="skill-tag">Workflow Design</span>
+                            <span class="skill-tag">RSS</span><span class="skill-tag">Email Automation</span>
+                            <span class="skill-tag">AWS EC2</span>
+                        </div>
+                    </div>
+                    <div class="skill-cat">
                         <h4><i class="fas fa-database" style="color: #1fbf6c; width: 1.2rem;"></i> Database & Version
                             Control</h4>
                         <div class="skill-tags">
@@ -596,8 +679,9 @@
                     <div class="summary-text">
                         <i class="fas fa-quote-left" style="opacity: 0.5;"></i> Cybersecurity enthusiast with strong
                         foundations in Python, C, C++, and Rust. Hands-on experience in vulnerability analysis,
-                        penetration testing, secure system assessments, and real-world attack simulations. Passionate
-                        about offensive security and building safer systems.
+                        penetration testing, secure system assessments, and real-world attack simulations. Also builds
+                        n8n automation workflows and self-hosts them on AWS EC2. Passionate about offensive security
+                        and building safer systems.
                     </div>
                 </div>
 
@@ -658,6 +742,69 @@
                             <li>Efficiently scans open ports and running services</li>
                             <li>Detects and tracks common system vulnerabilities</li>
                             <li>Optimized for speed and lightweight performance</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>YouTube Feed → Email Automation <span class="project-meta">n8n</span></h3>
+                        <div class="tools"><span>n8n</span><span>YouTube RSS</span><span>Email</span><span>AWS
+                                EC2</span></div>
+                        <div class="flow">
+                            <span class="node">Trigger</span><span class="arrow">▸</span>
+                            <span class="node">YouTube feed</span><span class="arrow">▸</span>
+                            <span class="node">Format</span><span class="arrow">▸</span>
+                            <span class="node">Send Email</span>
+                        </div>
+                        <ul>
+                            <li>Designed a workflow that watches chosen YouTube channels for new videos</li>
+                            <li>Emails the video title and link to my inbox automatically</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>Hacker News RSS → Email Automation <span class="project-meta">n8n</span></h3>
+                        <div class="tools"><span>n8n</span><span>RSS</span><span>Email</span><span>AWS EC2</span></div>
+                        <div class="flow">
+                            <span class="node">Trigger</span><span class="arrow">▸</span>
+                            <span class="node">RSS Read (Hacker News)</span><span class="arrow">▸</span>
+                            <span class="node">Format</span><span class="arrow">▸</span>
+                            <span class="node">Send Email</span>
+                        </div>
+                        <ul>
+                            <li>Pulls the latest Hacker News stories from its RSS feed</li>
+                            <li>Sends them as an email digest to keep up with security and tech news</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- N8N AUTOMATION -->
+                <div class="card">
+                    <div class="card-title"><i class="fas fa-project-diagram"></i> n8n Workflow Automation</div>
+                    <p class="intro-text">I design workflows in n8n by connecting nodes: a trigger starts the run,
+                        other nodes fetch and shape the data, and a final node delivers the result.</p>
+
+                    <div class="subhead">Nodes I've worked with</div>
+                    <div class="node-list">
+                        <div class="node-card"><strong><i class="fas fa-clock"></i> Schedule Trigger</strong><span>Runs
+                                a workflow at a set time or interval</span></div>
+                        <div class="node-card"><strong><i class="fas fa-rss"></i> RSS Feed Read</strong><span>Fetches
+                                items from a feed such as Hacker News or a YouTube channel</span></div>
+                        <div class="node-card"><strong><i class="fas fa-pen-to-square"></i> Edit Fields
+                                (Set)</strong><span>Picks and renames fields like title and link</span></div>
+                        <div class="node-card"><strong><i class="fas fa-code"></i> Code</strong><span>Custom
+                                JavaScript to build the email body</span></div>
+                        <div class="node-card"><strong><i class="fas fa-envelope"></i> Send Email</strong><span>Delivers
+                                the final digest to my inbox</span></div>
+                    </div>
+
+                    <div class="subhead">Deployment</div>
+                    <div class="project-item" style="margin-bottom: 0;">
+                        <h3>Self-hosted n8n on AWS EC2 <span class="project-meta">Cloud</span></h3>
+                        <div class="tools"><span>AWS EC2</span><span>Linux</span><span>n8n</span></div>
+                        <ul>
+                            <li>Launched a Linux EC2 instance and installed n8n on it</li>
+                            <li>Configured security group rules to control access to the instance</li>
+                            <li>Keeps both workflows running on the server, with no need for my laptop</li>
                         </ul>
                     </div>
                 </div>
